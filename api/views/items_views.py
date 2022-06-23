@@ -1,21 +1,24 @@
 from rest_framework.decorators import api_view
-from api.models import Item
+from api.models import Items
 from api.serializers import ItemSerializer
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 
 
+# get all Items
+# @route GET /api/goals
+# @access Private
 @api_view(['GET'])
 def getItems(request):
-    items = Item.objects.all()
+    items = Items.objects.all()
     serializer = ItemSerializer(items, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getItem(request, pk):
-    item = Item.objects.get(_id=pk)
+    item = Items.objects.get(_id=pk)
     serializer = ItemSerializer(item, many=False)
     return Response(serializer.data)
 
@@ -31,7 +34,7 @@ def postItem(request):
 @api_view(['PUT'])
 def putItem(request, pk):
     item = JSONParser().parse(request)
-    item_data = Item.objects.get(_id=pk)
+    item_data = Items.objects.get(_id=pk)
     item_serializer = ItemSerializer(item_data, data=item)
     if item_serializer.is_valid():
         item_serializer.save()
@@ -40,6 +43,6 @@ def putItem(request, pk):
    
 @api_view(['DELETE'])
 def deleteItem(request, pk):
-    item = Item.objects.get(_id=pk)
+    item = Items.objects.get(_id=pk)
     item.delete()
     return JsonResponse("Deleted Succeffully!!", safe=False) 

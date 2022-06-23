@@ -1,24 +1,24 @@
 from rest_framework import serializers
-from .models import Item , ContactRequest , VolunteeringApplication , VolunteeringOpportunity
+from .models import Items , ContactRequests , VolunteeringApplications , VolunteeringOpportunities
 
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Item
+        model = Items
         fields = '__all__'
 
 class ContactRequestSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ContactRequest
+        model = ContactRequests
         fields = '__all__'
         
         
 class VolunteeringOpportunitySerializer(serializers.ModelSerializer):
     class Meta:
-        model = VolunteeringOpportunity
+        model = VolunteeringOpportunities
         fields = '__all__'
         
         
 class VolunteeringApplicationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = VolunteeringApplication
+        model = VolunteeringApplications
         fields = '__all__'

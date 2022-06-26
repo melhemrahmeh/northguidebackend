@@ -1,5 +1,5 @@
 from rest_framework.decorators import api_view
-from api.models import VolunteeringOpportunities
+from api.models import VolunteeringOpportunity
 from api.serializers import VolunteeringOpportunitySerializer
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
@@ -8,14 +8,14 @@ from django.http.response import JsonResponse
 
 @api_view(['GET'])
 def getVolunteeringOpportunities(request):
-    volunteeringOpportunities = VolunteeringOpportunities.objects.all()
+    volunteeringOpportunities = VolunteeringOpportunity.objects.all()
     serializer = VolunteeringOpportunitySerializer(volunteeringOpportunities, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getVolunteeringOpportunity(request, pk):
-    volunteeringOpportunity = VolunteeringOpportunities.objects.get(_id=pk)
+    volunteeringOpportunity = VolunteeringOpportunity.objects.get(_id=pk)
     serializer = VolunteeringOpportunitySerializer(volunteeringOpportunity, many=False)
     return Response(serializer.data)
 
@@ -31,7 +31,7 @@ def postVolunteeringOpportunity(request):
 @api_view(['PUT'])
 def putVolunteeringOpportunity(request, pk):
     volunteeringOpportunity = JSONParser().parse(request)
-    volunteeringOpportunity_data = VolunteeringOpportunities.objects.get(_id=pk)
+    volunteeringOpportunity_data = VolunteeringOpportunity.objects.get(_id=pk)
     serializer = VolunteeringOpportunitySerializer(volunteeringOpportunity_data, data=volunteeringOpportunity)
     if serializer.is_valid():
         serializer.save()
@@ -40,6 +40,6 @@ def putVolunteeringOpportunity(request, pk):
    
 @api_view(['DELETE'])
 def deleteVolunteeringOpportunity(request, pk):
-    volunteeringOpportunity = VolunteeringOpportunities.objects.get(_id=pk)
+    volunteeringOpportunity = VolunteeringOpportunity.objects.get(_id=pk)
     volunteeringOpportunity.delete()
     return JsonResponse("Deleted Succeffully!!", safe=False)

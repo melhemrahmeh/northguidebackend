@@ -1,5 +1,5 @@
 from rest_framework.decorators import api_view
-from api.models import ContactRequests
+from api.models import ContactRequest
 from api.serializers import ContactRequestSerializer
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser
@@ -8,14 +8,14 @@ from django.http.response import JsonResponse
 
 @api_view(['GET'])
 def getContactRequests(request):
-    contactRequests = ContactRequests.objects.all()
+    contactRequests = ContactRequest.objects.all()
     serializer = ContactRequestSerializer(contactRequests, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getContactRequest(request, pk):
-    contactRequest = ContactRequests.objects.get(_id=pk)
+    contactRequest = ContactRequest.objects.get(_id=pk)
     serializer = ContactRequestSerializer(contactRequest, many=False)
     return Response(serializer.data)
 
@@ -31,7 +31,7 @@ def postContactRequest(request):
 @api_view(['PUT'])
 def putContactRequest(request, pk):
     contactRequest = JSONParser().parse(request)
-    contactRequest_data = ContactRequests.objects.get(_id=pk)
+    contactRequest_data = ContactRequest.objects.get(_id=pk)
     serializer = ContactRequestSerializer(contactRequest_data, data=contactRequest)
     if serializer.is_valid():
         serializer.save()
@@ -40,6 +40,6 @@ def putContactRequest(request, pk):
    
 @api_view(['DELETE'])
 def deleteContactRequest(request, pk):
-    contactRequest = ContactRequests.objects.get(_id=pk)
+    contactRequest = ContactRequest.objects.get(_id=pk)
     contactRequest.delete()
     return JsonResponse("Deleted Succeffully!!", safe=False) 

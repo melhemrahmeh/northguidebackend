@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ContactRequest , VolunteeringApplication , VolunteeringOpportunity
+from .models import ContactRequest , VolunteeringApplication , VolunteeringOpening
 
 class ContactRequestSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,7 +9,7 @@ class ContactRequestSerializer(serializers.ModelSerializer):
         
 class VolunteeringOpportunitySerializer(serializers.ModelSerializer):
     class Meta:
-        model = VolunteeringOpportunity
+        model = VolunteeringOpening
         fields = '__all__'
         
         

@@ -26,7 +26,7 @@ urlpatterns = [
     path('schema', get_schema_view(title="API Schema" , description="Guide for our rest API") , name="api_schema"),
     path('admin/', admin.site.urls),
     
-    path('api/contactrequests/', include("api.urls.contactrequests_urls")),
-    path('api/opportunities/', include("api.urls.volunteeringopportunities_urls")),
-    path('api/applications/', include("api.urls.volunteeringapplications_urls")),
+    path('api/users/', include("api.urls.users_urls")),
+    path('api/locations/', include("api.urls.locations_urls")),
+    path('api/places/', include("api.urls.places_urls")),
 ]

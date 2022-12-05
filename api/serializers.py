@@ -1,19 +1,20 @@
 from rest_framework import serializers
-from .models import ContactRequest , VolunteeringApplication , VolunteeringOpening
+from .models import Location, Place, Tourist
 
-class ContactRequestSerializer(serializers.ModelSerializer):
+
+class TouristSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ContactRequest
+        model = Tourist
         fields = '__all__'
-        
-        
-class VolunteeringOpportunitySerializer(serializers.ModelSerializer):
+
+
+class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = VolunteeringOpening
+        model = Place
         fields = '__all__'
-        
-        
-class VolunteeringApplicationSerializer(serializers.ModelSerializer):
+
+
+class LocationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = VolunteeringApplication
+        model = Location
         fields = '__all__'

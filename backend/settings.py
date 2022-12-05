@@ -88,8 +88,7 @@ DATABASES = {
         'NAME': 'jxqgsako', 
         'USER': 'jxqgsako', 
         'PASSWORD': 'Yca_8XFmY5324acE2WvD7cCAm1zGXM4Z',
-        'HOST': 'heffalump.db.elephantsql.com', 
-        'PORT': '5432',
+        'HOST': 'heffalump.db.elephantsql.com'
     }
 }
 

@@ -63,7 +63,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR , 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,12 +85,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jxqgsako', 
-        'USER': 'jxqgsako', 
+        'NAME': 'jxqgsako',
+        'USER': 'jxqgsako',
         'PASSWORD': 'Yca_8XFmY5324acE2WvD7cCAm1zGXM4Z',
-        'HOST': 'heffalump.db.elephantsql.com', 
-        'PORT': '5432',
-    }
+        'HOST': 'heffalump.db.elephantsql.com'}
 }
 
 

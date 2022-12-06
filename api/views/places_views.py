@@ -19,6 +19,10 @@ def getPlace(request, pk):
     serializer = PlaceSerializer(place, many=False)
     return Response(serializer.data)
 
+@api_view(["GET"])
+def getAllPlaces(request):
+    return Response({"payload": ["Qadisha Valley","Gebran Museum","Al-Arez","River Rock Restaurant","Hotel Chbat", "La Maison des Cedres"]})
+
 
 @api_view(['POST'])
 def postPlace(request):
